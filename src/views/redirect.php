@@ -10,38 +10,43 @@ use yii\web\View;
 ?><!DOCTYPE html>
 <html>
 <head>
-	<script type="text/javascript">
-		<?php 
-			$code = 'if (window.opener) {';
-			$code .= 'window.close();';
-			if ($redirect) {
-				$code .= 'window.opener.location = \''.addslashes($url).'\';';
-			}
-			$code .= '}';
-			$code .= 'else {';
-			if ($redirect) {
-				$code .= 'window.location = \''.addslashes($url).'\';';
-			}
-			$code .= '}';
-			echo $code;
-		?>
-	</script>
+    <script type="text/javascript">
+        <?php
+            $code = 'if (window.opener) {';
+            $code .= 'window.close();';
+            if ($redirect) {
+                $code .= 'window.opener.location = \''.addslashes($url).'\';';
+            }
+            $code .= '}';
+            $code .= 'else {';
+            if ($redirect) {
+                $code .= 'window.location = \''.addslashes($url).'\';';
+            }
+            $code .= '}';
+            $code .= "dataLayer.push({'event' : 'user-signup-success', 'method': '<" . Yii::$app->user->identity->social_name . ">' });";
+            echo $code;
+        ?>
+    </script>
 </head>
 <body>
 
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5WK6P54" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
 <h2 id="title" style="display:none;">
-	<?php echo \Yii::t('eauth', 'Redirecting back to the application...'); ?>
+    <?php echo \Yii::t('eauth', 'Redirecting back to the application...'); ?>
 </h2>
 
 <h3 id="link">
-	<a href="<?php echo $url; ?>">
-		<?php echo \Yii::t('eauth', 'Click here to return to the application.'); ?>
-	</a>
+    <a href="<?php echo $url; ?>">
+        <?php echo \Yii::t('eauth', 'Click here to return to the application.'); ?>
+    </a>
 </h3>
 
 <script type="text/javascript">
-	document.getElementById('title').style.display = '';
-	document.getElementById('link').style.display = 'none';
+    document.getElementById('title').style.display = '';
+    document.getElementById('link').style.display = 'none';
 </script>
 
 </body>
