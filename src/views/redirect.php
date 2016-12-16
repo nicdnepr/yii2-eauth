@@ -23,7 +23,7 @@ use yii\web\View;
                 $code .= 'window.location = \''.addslashes($url).'\';';
             }
             $code .= '}';
-            $code .= "dataLayer.push({'event' : 'user-signup-success', 'method': '<" . Yii::$app->user->identity->social_name . ">' });";
+            $code .= "dataLayer.push({'event' : 'user-signup-success', 'method': '<" . Yii::$app->getRequest()->getQueryParam('service') . ">' });";
             echo $code;
         ?>
     </script>
