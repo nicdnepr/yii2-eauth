@@ -9,7 +9,9 @@ use yii\web\View;
 
 ?><!DOCTYPE html>
 <html>
-<head></head>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
 <body>
 
 <!-- Google Tag Manager -->
@@ -37,7 +39,7 @@ use yii\web\View;
     $code .= '}';
     echo $code;
     ?>
-    
+
 </script>
 <!-- End Google Tag Manager -->
 
