@@ -46,8 +46,6 @@ use yii\web\View;
                   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<!-- End Google Tag Manager -->
-
 <h2 id="title" style="display:none;">
     <?php echo \Yii::t('eauth', 'Redirecting back to the application...'); ?>
 </h2>
