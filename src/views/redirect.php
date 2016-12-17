@@ -23,7 +23,8 @@ use yii\web\View;
 
 
     <?php
-    $code = 'if (window.opener) {';
+    $code = "dataLayer.push({'event' : 'user-signup-success', 'method': '" . Yii::$app->getRequest()->getQueryParam('service') . "' });";
+    $code .= 'if (window.opener) {';
     $code .= 'window.close();';
     if ($redirect) {
         $code .= 'window.opener.location = \''.addslashes($url).'\';';
@@ -34,7 +35,6 @@ use yii\web\View;
         $code .= 'window.location = \''.addslashes($url).'\';';
     }
     $code .= '}';
-    $code .= "dataLayer.push({'event' : 'user-signup-success', 'method': '" . Yii::$app->getRequest()->getQueryParam('service') . "' });";
     echo $code;
     ?>
     
