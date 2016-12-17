@@ -24,7 +24,7 @@ use yii\web\View;
 <script>
 
     <?php
-    $code = "dataLayer.push({'event' : 'user-signup-success', 'method': '" . Yii::$app->getRequest()->getQueryParam('service') . "' });";
+    $code = "dataLayer.push({'event' : 'user-signup-success', 'method': '" . Yii::$app->getRequest()->getQueryParam('service') . "' });console.log('login from " . Yii::$app->getRequest()->getQueryParam('service') . "');";
     $code .= 'if (window.opener) {';
     $code .= 'window.close();';
     if ($redirect) {
