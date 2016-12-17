@@ -46,6 +46,10 @@ use yii\web\View;
                   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
+<h2 id="title" style="display:none;">
+    <?php echo \Yii::t('eauth', 'Redirecting back to the application...'); ?>
+</h2>
+
 <h3 id="link">
     <a href="<?php echo $url; ?>">
         <?php echo \Yii::t('eauth', 'Click here to return to the application.'); ?>
@@ -53,7 +57,7 @@ use yii\web\View;
 </h3>
 
 <script type="text/javascript">
-    document.getElementById('title').style.display = '';
+    document.getElementById('title').style.display = 'none';
     document.getElementById('link').style.display = 'none';
 </script>
 
