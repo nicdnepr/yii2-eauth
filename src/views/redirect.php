@@ -35,7 +35,7 @@ use yii\web\View;
         $code .= 'window.location = "'.addslashes($url).'";';
     }
     $code .= '}}';
-    $code = "dataLayer.push({'event' : 'user-signup-success', 'method': '" . Yii::$app->getRequest()->getQueryParam('service') . "', 'eventCallback': 'reload' });";
+    $code .= "dataLayer.push({'event' : 'user-signup-success', 'method': '" . Yii::$app->getRequest()->getQueryParam('service') . "', 'eventCallback': 'reload' });";
     echo $code;
     ?>
 
