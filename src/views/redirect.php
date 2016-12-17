@@ -24,18 +24,18 @@ use yii\web\View;
 <script>
 
     <?php
-    $code = "dataLayer.push({'event' : 'user-signup-success', 'method': '" . Yii::$app->getRequest()->getQueryParam('service') . "' });";
-    $code .= 'if (window.opener) {';
+    $code = 'function reload() { if (window.opener) {';
     $code .= 'window.close();';
     if ($redirect) {
-        $code .= 'window.opener.location = \''.addslashes($url).'\';';
+        $code .= 'window.opener.location = "'.addslashes($url).'";';
     }
     $code .= '}';
     $code .= 'else {';
     if ($redirect) {
-        $code .= 'window.location = \''.addslashes($url).'\';';
+        $code .= 'window.location = "'.addslashes($url).'";';
     }
-    $code .= '}';
+    $code .= '}}';
+    $code = "dataLayer.push({'event' : 'user-signup-success', 'method': '" . Yii::$app->getRequest()->getQueryParam('service') . "', 'eventCallback': 'reload' });";
     echo $code;
     ?>
 
